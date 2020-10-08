@@ -1,5 +1,7 @@
 # ODD Tools
 
+https://scott.maclure.info/oddtools/
+
 ## What is this?
 
 A collection of tools to help with playing "0E" D&D, aka "OD&D".
