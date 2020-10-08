@@ -4,13 +4,14 @@ import utils from './utils.js'
 const resetSpellBook = (spellBook) => {
     //console.log('resetSpellBook called')
     spellBook = utils.deepClone(ifData.classes.magicUser.startingSpellBook)
+    return spellBook
 }
 
 const generateSpellBook = (selectedLevel, selectedIntelligence, spellBook) => {
     
     // Reset the spellbook
-    resetSpellBook(spellBook)
-    console.log('generateSpellBook, selectedIntelligence:', selectedIntelligence)
+    spellBook = resetSpellBook(spellBook)
+    // console.log('generateSpellBook, selectedLevel:', selectedLevel, 'selectedIntelligence:', selectedIntelligence, 'spellBook:', spellBook)
 
     // Go through each class level up to the "maxSpellLevel", which is the highgest memorizable spell level.
     for (let i = 0; i < selectedLevel.maxSpellLevel; i++) {
@@ -65,6 +66,8 @@ const generateSpellBook = (selectedLevel, selectedIntelligence, spellBook) => {
             continue
         }
     }
+
+    return spellBook
 
 }
 
