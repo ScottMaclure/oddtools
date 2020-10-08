@@ -17,8 +17,8 @@
 		resetSpellBook()
 		console.log('generateSpellBook, selectedIntelligence:', selectedIntelligence)
 
-		// Go through each level up to the selected class level, generating spells.
-		for (let i = 0; i < selectedLevel.level; i++) {
+		// Go through each class level up to the "maxSpellLevel", which is the highgest memorizable spell level.
+		for (let i = 0; i < selectedLevel.maxSpellLevel; i++) {
 
 			console.log('Generating spells for level:', i+1)
 			
