@@ -164,7 +164,7 @@
 		</main>
 
 		<footer>
-			<small>Text is Copyright &copy; 2014-2016 Chris Gonnerman. For code, see the <a href="{appData.ghRepo}">github repo</a>. Last deployed {appData.version}.</small>
+			<small>Text used is &copy; 2014-2016 Chris Gonnerman. For code, see the <a href="{appData.ghRepo}">github repo</a>. Last deployed {appData.version}.</small>
 		</footer>
 
 	</div>
