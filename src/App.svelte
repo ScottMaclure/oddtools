@@ -164,7 +164,7 @@
 		</main>
 
 		<footer>
-			<small>&copy; 2020 Scott Maclure. MIT License. Version {appData.version}. <a href="{appData.ghRepo}">Github repo</a>.</small>
+			<small>Text is Copyright &copy; 2014-2016 Chris Gonnerman. For code, see the <a href="{appData.ghRepo}">github repo</a>. Last deployed {appData.version}.</small>
 		</footer>
 
 	</div>
