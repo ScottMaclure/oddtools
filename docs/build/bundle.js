@@ -373,17 +373,72 @@ var app = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[6] = list[i];
+    	child_ctx[9] = list[i];
     	return child_ctx;
     }
 
-    // (32:5) {:else}
+    function get_each_context_1(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[12] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_2(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[12] = list[i];
+    	return child_ctx;
+    }
+
+    // (123:6) {#each ifData.classes.magicUser.levels as option}
+    function create_each_block_2(ctx) {
+    	let option;
+    	let t_value = /*option*/ ctx[12].level + "";
+    	let t;
+    	let option_value_value;
+
+    	const block = {
+    		c: function create() {
+    			option = element("option");
+    			t = text(t_value);
+    			option.__value = option_value_value = /*option*/ ctx[12];
+    			option.value = option.__value;
+    			add_location(option, file, 123, 7, 3417);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, option, anchor);
+    			append_dev(option, t);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*ifData*/ 2 && t_value !== (t_value = /*option*/ ctx[12].level + "")) set_data_dev(t, t_value);
+
+    			if (dirty & /*ifData*/ 2 && option_value_value !== (option_value_value = /*option*/ ctx[12])) {
+    				prop_dev(option, "__value", option_value_value);
+    				option.value = option.__value;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(option);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_2.name,
+    		type: "each",
+    		source: "(123:6) {#each ifData.classes.magicUser.levels as option}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (135:7) {:else}
     function create_else_block(ctx) {
     	let option;
-    	let t0_value = /*option*/ ctx[6].levelMin + "";
+    	let t0_value = /*option*/ ctx[12].levelMin + "";
     	let t0;
     	let t1;
-    	let t2_value = /*option*/ ctx[6].levelMax + "";
+    	let t2_value = /*option*/ ctx[12].levelMax + "";
     	let t2;
     	let option_value_value;
 
@@ -393,9 +448,9 @@ var app = (function () {
     			t0 = text(t0_value);
     			t1 = text("-");
     			t2 = text(t2_value);
-    			option.__value = option_value_value = /*option*/ ctx[6];
+    			option.__value = option_value_value = /*option*/ ctx[12];
     			option.value = option.__value;
-    			add_location(option, file, 32, 6, 718);
+    			add_location(option, file, 135, 8, 3770);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option, anchor);
@@ -404,10 +459,10 @@ var app = (function () {
     			append_dev(option, t2);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*ifData*/ 2 && t0_value !== (t0_value = /*option*/ ctx[6].levelMin + "")) set_data_dev(t0, t0_value);
-    			if (dirty & /*ifData*/ 2 && t2_value !== (t2_value = /*option*/ ctx[6].levelMax + "")) set_data_dev(t2, t2_value);
+    			if (dirty & /*ifData*/ 2 && t0_value !== (t0_value = /*option*/ ctx[12].levelMin + "")) set_data_dev(t0, t0_value);
+    			if (dirty & /*ifData*/ 2 && t2_value !== (t2_value = /*option*/ ctx[12].levelMax + "")) set_data_dev(t2, t2_value);
 
-    			if (dirty & /*ifData*/ 2 && option_value_value !== (option_value_value = /*option*/ ctx[6])) {
+    			if (dirty & /*ifData*/ 2 && option_value_value !== (option_value_value = /*option*/ ctx[12])) {
     				prop_dev(option, "__value", option_value_value);
     				option.value = option.__value;
     			}
@@ -421,17 +476,17 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(32:5) {:else}",
+    		source: "(135:7) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (30:5) {#if option.levelMin === option.levelMax}
+    // (133:7) {#if option.levelMin === option.levelMax}
     function create_if_block_1(ctx) {
     	let option;
-    	let t_value = /*option*/ ctx[6].levelMax + "";
+    	let t_value = /*option*/ ctx[12].levelMax + "";
     	let t;
     	let option_value_value;
 
@@ -439,18 +494,18 @@ var app = (function () {
     		c: function create() {
     			option = element("option");
     			t = text(t_value);
-    			option.__value = option_value_value = /*option*/ ctx[6];
+    			option.__value = option_value_value = /*option*/ ctx[12];
     			option.value = option.__value;
-    			add_location(option, file, 30, 6, 649);
+    			add_location(option, file, 133, 8, 3697);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option, anchor);
     			append_dev(option, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*ifData*/ 2 && t_value !== (t_value = /*option*/ ctx[6].levelMax + "")) set_data_dev(t, t_value);
+    			if (dirty & /*ifData*/ 2 && t_value !== (t_value = /*option*/ ctx[12].levelMax + "")) set_data_dev(t, t_value);
 
-    			if (dirty & /*ifData*/ 2 && option_value_value !== (option_value_value = /*option*/ ctx[6])) {
+    			if (dirty & /*ifData*/ 2 && option_value_value !== (option_value_value = /*option*/ ctx[12])) {
     				prop_dev(option, "__value", option_value_value);
     				option.value = option.__value;
     			}
@@ -464,19 +519,19 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(30:5) {#if option.levelMin === option.levelMax}",
+    		source: "(133:7) {#if option.levelMin === option.levelMax}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (29:4) {#each ifData.abilities.intelligence as option}
-    function create_each_block(ctx) {
+    // (132:6) {#each ifData.abilities.intelligence as option}
+    function create_each_block_1(ctx) {
     	let if_block_anchor;
 
     	function select_block_type(ctx, dirty) {
-    		if (/*option*/ ctx[6].levelMin === /*option*/ ctx[6].levelMax) return create_if_block_1;
+    		if (/*option*/ ctx[12].levelMin === /*option*/ ctx[12].levelMax) return create_if_block_1;
     		return create_else_block;
     	}
 
@@ -513,61 +568,33 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_each_block.name,
+    		id: create_each_block_1.name,
     		type: "each",
-    		source: "(29:4) {#each ifData.abilities.intelligence as option}",
+    		source: "(132:6) {#each ifData.abilities.intelligence as option}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (38:3) {#if selectedIntelligence.spellChance > 0}
+    // (158:5) {#if spellBookLevel.spells.length > 0}
     function create_if_block(ctx) {
     	let div;
     	let t0;
-    	let t1_value = /*selectedIntelligence*/ ctx[2].spellChance + "";
+    	let t1_value = /*spellBookLevel*/ ctx[9].level + "";
     	let t1;
     	let t2;
-    	let t3_value = /*selectedIntelligence*/ ctx[2].minNum + "";
+    	let t3_value = /*spellBookLevel*/ ctx[9].spells.join(", ") + "";
     	let t3;
-    	let t4;
-    	let t5_value = /*selectedIntelligence*/ ctx[2].maxNum + "";
-    	let t5;
-    	let t6;
-    	let t7_value = /*selectedIntelligence*/ ctx[2].maxLevel + "";
-    	let t7;
-    	let t8;
-    	let t9;
-    	let button;
-    	let t11;
-    	let pre;
-    	let mounted;
-    	let dispose;
 
     	const block = {
     		c: function create() {
     			div = element("div");
-    			t0 = text("Chance=");
+    			t0 = text("Level ");
     			t1 = text(t1_value);
-    			t2 = text("%, \n\t\t\t\tMin=");
+    			t2 = text(": ");
     			t3 = text(t3_value);
-    			t4 = text(", \n\t\t\t\tMax=");
-    			t5 = text(t5_value);
-    			t6 = text(", \n\t\t\t\tMaxLevel=");
-    			t7 = text(t7_value);
-    			t8 = text(".");
-    			t9 = space();
-    			button = element("button");
-    			button.textContent = "Generate Spellbook";
-    			t11 = space();
-    			pre = element("pre");
-    			pre.textContent = `${/*spellBookOutput*/ ctx[3]}`;
-    			attr_dev(div, "class", "selectedIntelligence");
-    			add_location(div, file, 38, 3, 872);
-    			add_location(button, file, 45, 3, 1096);
-    			attr_dev(pre, "id", "spellBook");
-    			add_location(pre, file, 47, 3, 1165);
+    			add_location(div, file, 158, 5, 4481);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -575,35 +602,13 @@ var app = (function () {
     			append_dev(div, t1);
     			append_dev(div, t2);
     			append_dev(div, t3);
-    			append_dev(div, t4);
-    			append_dev(div, t5);
-    			append_dev(div, t6);
-    			append_dev(div, t7);
-    			append_dev(div, t8);
-    			insert_dev(target, t9, anchor);
-    			insert_dev(target, button, anchor);
-    			insert_dev(target, t11, anchor);
-    			insert_dev(target, pre, anchor);
-
-    			if (!mounted) {
-    				dispose = listen_dev(button, "click", /*generateSpellBook*/ ctx[4], false, false, false);
-    				mounted = true;
-    			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*selectedIntelligence*/ 4 && t1_value !== (t1_value = /*selectedIntelligence*/ ctx[2].spellChance + "")) set_data_dev(t1, t1_value);
-    			if (dirty & /*selectedIntelligence*/ 4 && t3_value !== (t3_value = /*selectedIntelligence*/ ctx[2].minNum + "")) set_data_dev(t3, t3_value);
-    			if (dirty & /*selectedIntelligence*/ 4 && t5_value !== (t5_value = /*selectedIntelligence*/ ctx[2].maxNum + "")) set_data_dev(t5, t5_value);
-    			if (dirty & /*selectedIntelligence*/ 4 && t7_value !== (t7_value = /*selectedIntelligence*/ ctx[2].maxLevel + "")) set_data_dev(t7, t7_value);
+    			if (dirty & /*spellBook*/ 16 && t1_value !== (t1_value = /*spellBookLevel*/ ctx[9].level + "")) set_data_dev(t1, t1_value);
+    			if (dirty & /*spellBook*/ 16 && t3_value !== (t3_value = /*spellBookLevel*/ ctx[9].spells.join(", ") + "")) set_data_dev(t3, t3_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div);
-    			if (detaching) detach_dev(t9);
-    			if (detaching) detach_dev(button);
-    			if (detaching) detach_dev(t11);
-    			if (detaching) detach_dev(pre);
-    			mounted = false;
-    			dispose();
     		}
     	};
 
@@ -611,7 +616,52 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(38:3) {#if selectedIntelligence.spellChance > 0}",
+    		source: "(158:5) {#if spellBookLevel.spells.length > 0}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (157:4) {#each spellBook as spellBookLevel}
+    function create_each_block(ctx) {
+    	let if_block_anchor;
+    	let if_block = /*spellBookLevel*/ ctx[9].spells.length > 0 && create_if_block(ctx);
+
+    	const block = {
+    		c: function create() {
+    			if (if_block) if_block.c();
+    			if_block_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			if (if_block) if_block.m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (/*spellBookLevel*/ ctx[9].spells.length > 0) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+    				} else {
+    					if_block = create_if_block(ctx);
+    					if_block.c();
+    					if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    				}
+    			} else if (if_block) {
+    				if_block.d(1);
+    				if_block = null;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (if_block) if_block.d(detaching);
+    			if (detaching) detach_dev(if_block_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block.name,
+    		type: "each",
+    		source: "(157:4) {#each spellBook as spellBookLevel}",
     		ctx
     	});
 
@@ -619,8 +669,8 @@ var app = (function () {
     }
 
     function create_fragment(ctx) {
-    	let div1;
-    	let div0;
+    	let div4;
+    	let div3;
     	let header;
     	let h1;
     	let t0_value = /*appData*/ ctx[0].title + "";
@@ -631,18 +681,73 @@ var app = (function () {
     	let main;
     	let h2;
     	let t5;
-    	let select;
-    	let option;
+    	let fieldset0;
+    	let legend0;
     	let t7;
+    	let div0;
     	let t8;
-    	let footer;
-    	let small;
+    	let select0;
     	let t9;
-    	let t10_value = /*appData*/ ctx[0].version + "";
+    	let div2;
     	let t10;
+    	let select1;
+    	let t11;
+    	let div1;
+    	let small0;
+    	let t12;
+    	let t13_value = /*selectedLevel*/ ctx[2].level + "";
+    	let t13;
+    	let t14;
+    	let t15_value = /*selectedLevel*/ ctx[2].experience + "";
+    	let t15;
+    	let t16;
+    	let t17_value = /*selectedIntelligence*/ ctx[3].spellChance + "";
+    	let t17;
+    	let t18;
+    	let t19_value = /*selectedIntelligence*/ ctx[3].minNum + "";
+    	let t19;
+    	let t20;
+    	let t21_value = /*selectedIntelligence*/ ctx[3].maxNum + "";
+    	let t21;
+    	let t22;
+    	let t23_value = /*selectedIntelligence*/ ctx[3].maxLevel + "";
+    	let t23;
+    	let t24;
+    	let t25;
+    	let button;
+    	let t27;
+    	let fieldset1;
+    	let legend1;
+    	let t28;
+    	let t29_value = /*selectedLevel*/ ctx[2].level + "";
+    	let t29;
+    	let t30;
+    	let t31;
+    	let t32;
+    	let footer;
+    	let small1;
+    	let t33;
+    	let t34_value = /*appData*/ ctx[0].version + "";
+    	let t34;
     	let mounted;
     	let dispose;
-    	let each_value = /*ifData*/ ctx[1].abilities.intelligence;
+    	let each_value_2 = /*ifData*/ ctx[1].classes.magicUser.levels;
+    	validate_each_argument(each_value_2);
+    	let each_blocks_2 = [];
+
+    	for (let i = 0; i < each_value_2.length; i += 1) {
+    		each_blocks_2[i] = create_each_block_2(get_each_context_2(ctx, each_value_2, i));
+    	}
+
+    	let each_value_1 = /*ifData*/ ctx[1].abilities.intelligence;
+    	validate_each_argument(each_value_1);
+    	let each_blocks_1 = [];
+
+    	for (let i = 0; i < each_value_1.length; i += 1) {
+    		each_blocks_1[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
+    	}
+
+    	let each_value = /*spellBook*/ ctx[4];
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
@@ -650,12 +755,10 @@ var app = (function () {
     		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
     	}
 
-    	let if_block = /*selectedIntelligence*/ ctx[2].spellChance > 0 && create_if_block(ctx);
-
     	const block = {
     		c: function create() {
-    			div1 = element("div");
-    			div0 = element("div");
+    			div4 = element("div");
+    			div3 = element("div");
     			header = element("header");
     			h1 = element("h1");
     			t0 = text(t0_value);
@@ -666,74 +769,173 @@ var app = (function () {
     			main = element("main");
     			h2 = element("h2");
     			h2.textContent = "Extended Spell List";
-    			t5 = text("\n\t\t\t\n\t\t\tIntelligence:\n\t\t\t");
-    			select = element("select");
-    			option = element("option");
-    			option.textContent = "--- Please select ---";
+    			t5 = space();
+    			fieldset0 = element("fieldset");
+    			legend0 = element("legend");
+    			legend0.textContent = "Configure";
+    			t7 = space();
+    			div0 = element("div");
+    			t8 = text("Character Level:\n\t\t\t\t\t");
+    			select0 = element("select");
+
+    			for (let i = 0; i < each_blocks_2.length; i += 1) {
+    				each_blocks_2[i].c();
+    			}
+
+    			t9 = space();
+    			div2 = element("div");
+    			t10 = text("Intelligence:\n\t\t\t\t\t");
+    			select1 = element("select");
+
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].c();
+    			}
+
+    			t11 = space();
+    			div1 = element("div");
+    			small0 = element("small");
+    			t12 = text("Level=");
+    			t13 = text(t13_value);
+    			t14 = text(", \n\t\t\t\t\t\tExperience=");
+    			t15 = text(t15_value);
+    			t16 = text(", \n\t\t\t\t\t\tChance=");
+    			t17 = text(t17_value);
+    			t18 = text("%, \n\t\t\t\t\t\tMin=");
+    			t19 = text(t19_value);
+    			t20 = text(", \n\t\t\t\t\t\tMax=");
+    			t21 = text(t21_value);
+    			t22 = text(", \n\t\t\t\t\t\tMaxLevel=");
+    			t23 = text(t23_value);
+    			t24 = text(".");
+    			t25 = space();
+    			button = element("button");
+    			button.textContent = "Generate Spellbook";
+    			t27 = space();
+    			fieldset1 = element("fieldset");
+    			legend1 = element("legend");
+    			t28 = text("Level ");
+    			t29 = text(t29_value);
+    			t30 = text(" Magic-User's Spellbook");
+    			t31 = space();
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
 
-    			t7 = space();
-    			if (if_block) if_block.c();
-    			t8 = space();
+    			t32 = space();
     			footer = element("footer");
-    			small = element("small");
-    			t9 = text("© 2020 Scott Maclure. MIT License. Version ");
-    			t10 = text(t10_value);
+    			small1 = element("small");
+    			t33 = text("© 2020 Scott Maclure. MIT License. Version ");
+    			t34 = text(t34_value);
     			attr_dev(h1, "class", "svelte-1x2ts6y");
-    			add_location(h1, file, 18, 3, 294);
-    			add_location(p, file, 19, 3, 322);
-    			add_location(header, file, 17, 2, 282);
-    			add_location(h2, file, 23, 3, 405);
-    			option.__value = "--- Please select ---";
-    			option.value = option.__value;
-    			add_location(option, file, 27, 4, 505);
-    			if (/*selectedIntelligence*/ ctx[2] === void 0) add_render_callback(() => /*select_change_handler*/ ctx[5].call(select));
-    			add_location(select, file, 26, 3, 458);
+    			add_location(h1, file, 110, 3, 3070);
+    			add_location(p, file, 111, 3, 3098);
+    			add_location(header, file, 109, 2, 3058);
+    			add_location(h2, file, 115, 3, 3181);
+    			add_location(legend0, file, 118, 4, 3229);
+    			if (/*selectedLevel*/ ctx[2] === void 0) add_render_callback(() => /*select0_change_handler*/ ctx[7].call(select0));
+    			add_location(select0, file, 121, 5, 3293);
+    			add_location(div0, file, 119, 4, 3260);
+    			if (/*selectedIntelligence*/ ctx[3] === void 0) add_render_callback(() => /*select1_change_handler*/ ctx[8].call(select1));
+    			add_location(select1, file, 130, 5, 3543);
+    			add_location(small0, file, 140, 10, 3896);
+    			add_location(div1, file, 140, 5, 3891);
+    			add_location(div2, file, 128, 4, 3513);
+    			add_location(fieldset0, file, 117, 3, 3214);
+    			add_location(button, file, 152, 3, 4225);
+    			add_location(legend1, file, 155, 4, 4324);
+    			attr_dev(fieldset1, "id", "spellBook");
+    			add_location(fieldset1, file, 154, 3, 4294);
     			attr_dev(main, "class", "svelte-1x2ts6y");
-    			add_location(main, file, 22, 2, 395);
-    			add_location(small, file, 53, 3, 1244);
-    			add_location(footer, file, 52, 2, 1232);
-    			attr_dev(div0, "class", "item svelte-1x2ts6y");
-    			add_location(div0, file, 15, 1, 260);
-    			attr_dev(div1, "class", "container svelte-1x2ts6y");
-    			add_location(div1, file, 13, 0, 234);
+    			add_location(main, file, 114, 2, 3171);
+    			add_location(small1, file, 166, 3, 4621);
+    			add_location(footer, file, 165, 2, 4609);
+    			attr_dev(div3, "class", "item svelte-1x2ts6y");
+    			add_location(div3, file, 107, 1, 3036);
+    			attr_dev(div4, "class", "container svelte-1x2ts6y");
+    			add_location(div4, file, 105, 0, 3010);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div1, anchor);
-    			append_dev(div1, div0);
-    			append_dev(div0, header);
+    			insert_dev(target, div4, anchor);
+    			append_dev(div4, div3);
+    			append_dev(div3, header);
     			append_dev(header, h1);
     			append_dev(h1, t0);
     			append_dev(header, t1);
     			append_dev(header, p);
-    			append_dev(div0, t3);
-    			append_dev(div0, main);
+    			append_dev(div3, t3);
+    			append_dev(div3, main);
     			append_dev(main, h2);
     			append_dev(main, t5);
-    			append_dev(main, select);
-    			append_dev(select, option);
+    			append_dev(main, fieldset0);
+    			append_dev(fieldset0, legend0);
+    			append_dev(fieldset0, t7);
+    			append_dev(fieldset0, div0);
+    			append_dev(div0, t8);
+    			append_dev(div0, select0);
 
-    			for (let i = 0; i < each_blocks.length; i += 1) {
-    				each_blocks[i].m(select, null);
+    			for (let i = 0; i < each_blocks_2.length; i += 1) {
+    				each_blocks_2[i].m(select0, null);
     			}
 
-    			select_option(select, /*selectedIntelligence*/ ctx[2]);
-    			append_dev(main, t7);
-    			if (if_block) if_block.m(main, null);
-    			append_dev(div0, t8);
-    			append_dev(div0, footer);
-    			append_dev(footer, small);
-    			append_dev(small, t9);
-    			append_dev(small, t10);
+    			select_option(select0, /*selectedLevel*/ ctx[2]);
+    			append_dev(fieldset0, t9);
+    			append_dev(fieldset0, div2);
+    			append_dev(div2, t10);
+    			append_dev(div2, select1);
+
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].m(select1, null);
+    			}
+
+    			select_option(select1, /*selectedIntelligence*/ ctx[3]);
+    			append_dev(div2, t11);
+    			append_dev(div2, div1);
+    			append_dev(div1, small0);
+    			append_dev(small0, t12);
+    			append_dev(small0, t13);
+    			append_dev(small0, t14);
+    			append_dev(small0, t15);
+    			append_dev(small0, t16);
+    			append_dev(small0, t17);
+    			append_dev(small0, t18);
+    			append_dev(small0, t19);
+    			append_dev(small0, t20);
+    			append_dev(small0, t21);
+    			append_dev(small0, t22);
+    			append_dev(small0, t23);
+    			append_dev(small0, t24);
+    			append_dev(main, t25);
+    			append_dev(main, button);
+    			append_dev(main, t27);
+    			append_dev(main, fieldset1);
+    			append_dev(fieldset1, legend1);
+    			append_dev(legend1, t28);
+    			append_dev(legend1, t29);
+    			append_dev(legend1, t30);
+    			append_dev(fieldset1, t31);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(fieldset1, null);
+    			}
+
+    			append_dev(div3, t32);
+    			append_dev(div3, footer);
+    			append_dev(footer, small1);
+    			append_dev(small1, t33);
+    			append_dev(small1, t34);
 
     			if (!mounted) {
-    				dispose = listen_dev(select, "change", /*select_change_handler*/ ctx[5]);
+    				dispose = [
+    					listen_dev(select0, "change", /*select0_change_handler*/ ctx[7]),
+    					listen_dev(select0, "blur", /*resetSpellBook*/ ctx[5], false, false, false),
+    					listen_dev(select1, "change", /*select1_change_handler*/ ctx[8]),
+    					listen_dev(button, "click", /*generateSpellBook*/ ctx[6], false, false, false)
+    				];
+
     				mounted = true;
     			}
     		},
@@ -741,7 +943,71 @@ var app = (function () {
     			if (dirty & /*appData*/ 1 && t0_value !== (t0_value = /*appData*/ ctx[0].title + "")) set_data_dev(t0, t0_value);
 
     			if (dirty & /*ifData*/ 2) {
-    				each_value = /*ifData*/ ctx[1].abilities.intelligence;
+    				each_value_2 = /*ifData*/ ctx[1].classes.magicUser.levels;
+    				validate_each_argument(each_value_2);
+    				let i;
+
+    				for (i = 0; i < each_value_2.length; i += 1) {
+    					const child_ctx = get_each_context_2(ctx, each_value_2, i);
+
+    					if (each_blocks_2[i]) {
+    						each_blocks_2[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks_2[i] = create_each_block_2(child_ctx);
+    						each_blocks_2[i].c();
+    						each_blocks_2[i].m(select0, null);
+    					}
+    				}
+
+    				for (; i < each_blocks_2.length; i += 1) {
+    					each_blocks_2[i].d(1);
+    				}
+
+    				each_blocks_2.length = each_value_2.length;
+    			}
+
+    			if (dirty & /*selectedLevel, ifData*/ 6) {
+    				select_option(select0, /*selectedLevel*/ ctx[2]);
+    			}
+
+    			if (dirty & /*ifData*/ 2) {
+    				each_value_1 = /*ifData*/ ctx[1].abilities.intelligence;
+    				validate_each_argument(each_value_1);
+    				let i;
+
+    				for (i = 0; i < each_value_1.length; i += 1) {
+    					const child_ctx = get_each_context_1(ctx, each_value_1, i);
+
+    					if (each_blocks_1[i]) {
+    						each_blocks_1[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks_1[i] = create_each_block_1(child_ctx);
+    						each_blocks_1[i].c();
+    						each_blocks_1[i].m(select1, null);
+    					}
+    				}
+
+    				for (; i < each_blocks_1.length; i += 1) {
+    					each_blocks_1[i].d(1);
+    				}
+
+    				each_blocks_1.length = each_value_1.length;
+    			}
+
+    			if (dirty & /*selectedIntelligence, ifData*/ 10) {
+    				select_option(select1, /*selectedIntelligence*/ ctx[3]);
+    			}
+
+    			if (dirty & /*selectedLevel*/ 4 && t13_value !== (t13_value = /*selectedLevel*/ ctx[2].level + "")) set_data_dev(t13, t13_value);
+    			if (dirty & /*selectedLevel*/ 4 && t15_value !== (t15_value = /*selectedLevel*/ ctx[2].experience + "")) set_data_dev(t15, t15_value);
+    			if (dirty & /*selectedIntelligence*/ 8 && t17_value !== (t17_value = /*selectedIntelligence*/ ctx[3].spellChance + "")) set_data_dev(t17, t17_value);
+    			if (dirty & /*selectedIntelligence*/ 8 && t19_value !== (t19_value = /*selectedIntelligence*/ ctx[3].minNum + "")) set_data_dev(t19, t19_value);
+    			if (dirty & /*selectedIntelligence*/ 8 && t21_value !== (t21_value = /*selectedIntelligence*/ ctx[3].maxNum + "")) set_data_dev(t21, t21_value);
+    			if (dirty & /*selectedIntelligence*/ 8 && t23_value !== (t23_value = /*selectedIntelligence*/ ctx[3].maxLevel + "")) set_data_dev(t23, t23_value);
+    			if (dirty & /*selectedLevel*/ 4 && t29_value !== (t29_value = /*selectedLevel*/ ctx[2].level + "")) set_data_dev(t29, t29_value);
+
+    			if (dirty & /*spellBook*/ 16) {
+    				each_value = /*spellBook*/ ctx[4];
     				validate_each_argument(each_value);
     				let i;
 
@@ -753,7 +1019,7 @@ var app = (function () {
     					} else {
     						each_blocks[i] = create_each_block(child_ctx);
     						each_blocks[i].c();
-    						each_blocks[i].m(select, null);
+    						each_blocks[i].m(fieldset1, null);
     					}
     				}
 
@@ -764,33 +1030,17 @@ var app = (function () {
     				each_blocks.length = each_value.length;
     			}
 
-    			if (dirty & /*selectedIntelligence, ifData*/ 6) {
-    				select_option(select, /*selectedIntelligence*/ ctx[2]);
-    			}
-
-    			if (/*selectedIntelligence*/ ctx[2].spellChance > 0) {
-    				if (if_block) {
-    					if_block.p(ctx, dirty);
-    				} else {
-    					if_block = create_if_block(ctx);
-    					if_block.c();
-    					if_block.m(main, null);
-    				}
-    			} else if (if_block) {
-    				if_block.d(1);
-    				if_block = null;
-    			}
-
-    			if (dirty & /*appData*/ 1 && t10_value !== (t10_value = /*appData*/ ctx[0].version + "")) set_data_dev(t10, t10_value);
+    			if (dirty & /*appData*/ 1 && t34_value !== (t34_value = /*appData*/ ctx[0].version + "")) set_data_dev(t34, t34_value);
     		},
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div1);
+    			if (detaching) detach_dev(div4);
+    			destroy_each(each_blocks_2, detaching);
+    			destroy_each(each_blocks_1, detaching);
     			destroy_each(each_blocks, detaching);
-    			if (if_block) if_block.d();
     			mounted = false;
-    			dispose();
+    			run_all(dispose);
     		}
     	};
 
@@ -805,16 +1055,112 @@ var app = (function () {
     	return block;
     }
 
+    function getUniqueSpell(currentSpells, spellsAvailable) {
+    	let keepGoing = true;
+
+    	while (keepGoing) {
+    		let newSpell = randomArrayItem(spellsAvailable);
+
+    		if (!currentSpells.includes(newSpell)) {
+    			keepGoing = false;
+    			return newSpell;
+    		}
+    	}
+    }
+
+    function randomArrayItem(arr) {
+    	const idx = Math.floor(Math.random() * arr.length);
+    	return arr[idx];
+    }
+
+    function roll1d100() {
+    	return randomInteger(1, 100);
+    }
+
+    function randomInteger(min, max) {
+    	return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function deepClone(obj) {
+    	return JSON.parse(JSON.stringify(obj));
+    }
+
     function instance($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("App", slots, []);
     	let { appData } = $$props;
     	let { ifData } = $$props;
-    	let selectedIntelligence = {};
-    	let spellBookOutput = [];
+    	let selectedLevel = ifData.classes.magicUser.levels[0];
+    	let selectedIntelligence = ifData.abilities.intelligence[4];
+    	let spellBook = deepClone(ifData.classes.magicUser.startingSpellBook);
+
+    	function resetSpellBook() {
+    		console.log("resetSpellBook called");
+    		$$invalidate(4, spellBook = deepClone(ifData.classes.magicUser.startingSpellBook));
+    	}
 
     	function generateSpellBook() {
+    		// Reset the spellbook
+    		resetSpellBook();
+
     		console.log("generateSpellBook, selectedIntelligence:", selectedIntelligence);
+
+    		// Go through each level up to the selected class level, generating spells.
+    		for (let i = 0; i < selectedLevel.level; i++) {
+    			console.log("Generating spells for level:", i + 1);
+    			let currentSpells = spellBook[i].spells;
+    			let spellsAvailable = deepClone(ifData.classes.magicUser.spells[i]);
+
+    			if (i == 0) {
+    				// FIXME Read Magic is already in the list... so filter it out for generation.
+    				spellsAvailable = spellsAvailable.filter(item => item !== "Read Magic");
+    			}
+
+    			console.log("currentSpells:", currentSpells);
+    			console.log("spellsAvailable:", spellsAvailable);
+    			let moreSpells = true;
+
+    			while (moreSpells) {
+    				// 0) Did we run out of spellsAvailable for this level?
+    				if (spellsAvailable.length === 0) {
+    					moreSpells = false;
+    					continue;
+    				}
+
+    				// 1) Too many spells already?
+    				if (currentSpells.length >= selectedIntelligence.maxNum) {
+    					moreSpells = false;
+    					continue;
+    				}
+
+    				// 2) Too few spells? Add a new one immediately.
+    				if (currentSpells.length < selectedIntelligence.minNum) {
+    					let newSpell = getUniqueSpell(currentSpells, spellsAvailable);
+    					currentSpells.push(newSpell);
+
+    					// Remove this spell from the list
+    					spellsAvailable = spellsAvailable.filter(item => item !== newSpell);
+
+    					moreSpells = true;
+    					continue;
+    				}
+
+    				// 3) Inbetween min and max? Roll to add another spell
+    				// TODO Confirm this logic with IF - random or sequential?
+    				// i.e. "stopping when all have been checked or the Max # number has been reached"
+    				let newSpell = getUniqueSpell(currentSpells, spellsAvailable);
+
+    				if (roll1d100() <= selectedIntelligence.spellChance) {
+    					currentSpells.push(newSpell);
+    				}
+
+    				// Remove this item regardless of spellChance, as per IF p.134
+    				spellsAvailable = spellsAvailable.filter(item => item !== newSpell);
+
+    				moreSpells = true;
+    				continue;
+    			}
+    		}
     	}
 
     	const writable_props = ["appData", "ifData"];
@@ -823,9 +1169,15 @@ var app = (function () {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1.warn(`<App> was created with unknown prop '${key}'`);
     	});
 
-    	function select_change_handler() {
+    	function select0_change_handler() {
+    		selectedLevel = select_value(this);
+    		$$invalidate(2, selectedLevel);
+    		$$invalidate(1, ifData);
+    	}
+
+    	function select1_change_handler() {
     		selectedIntelligence = select_value(this);
-    		$$invalidate(2, selectedIntelligence);
+    		$$invalidate(3, selectedIntelligence);
     		$$invalidate(1, ifData);
     	}
 
@@ -837,16 +1189,24 @@ var app = (function () {
     	$$self.$capture_state = () => ({
     		appData,
     		ifData,
+    		selectedLevel,
     		selectedIntelligence,
-    		spellBookOutput,
-    		generateSpellBook
+    		spellBook,
+    		resetSpellBook,
+    		generateSpellBook,
+    		getUniqueSpell,
+    		randomArrayItem,
+    		roll1d100,
+    		randomInteger,
+    		deepClone
     	});
 
     	$$self.$inject_state = $$props => {
     		if ("appData" in $$props) $$invalidate(0, appData = $$props.appData);
     		if ("ifData" in $$props) $$invalidate(1, ifData = $$props.ifData);
-    		if ("selectedIntelligence" in $$props) $$invalidate(2, selectedIntelligence = $$props.selectedIntelligence);
-    		if ("spellBookOutput" in $$props) $$invalidate(3, spellBookOutput = $$props.spellBookOutput);
+    		if ("selectedLevel" in $$props) $$invalidate(2, selectedLevel = $$props.selectedLevel);
+    		if ("selectedIntelligence" in $$props) $$invalidate(3, selectedIntelligence = $$props.selectedIntelligence);
+    		if ("spellBook" in $$props) $$invalidate(4, spellBook = $$props.spellBook);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -856,10 +1216,13 @@ var app = (function () {
     	return [
     		appData,
     		ifData,
+    		selectedLevel,
     		selectedIntelligence,
-    		spellBookOutput,
+    		spellBook,
+    		resetSpellBook,
     		generateSpellBook,
-    		select_change_handler
+    		select0_change_handler,
+    		select1_change_handler
     	];
     }
 
@@ -1003,8 +1366,310 @@ var app = (function () {
     		}
     	]
     };
+    var classes = {
+    	magicUser: {
+    		startingSpellBook: [
+    			{
+    				level: 1,
+    				spells: [
+    					"Read Magic"
+    				]
+    			},
+    			{
+    				level: 2,
+    				spells: [
+    				]
+    			},
+    			{
+    				level: 3,
+    				spells: [
+    				]
+    			},
+    			{
+    				level: 4,
+    				spells: [
+    				]
+    			},
+    			{
+    				level: 5,
+    				spells: [
+    				]
+    			},
+    			{
+    				level: 6,
+    				spells: [
+    				]
+    			},
+    			{
+    				level: 7,
+    				spells: [
+    				]
+    			},
+    			{
+    				level: 8,
+    				spells: [
+    				]
+    			},
+    			{
+    				level: 9,
+    				spells: [
+    				]
+    			}
+    		],
+    		_spells_comment: "TODO turn these into objects later.",
+    		spells: [
+    			[
+    				"Charm Person",
+    				"Detect Magic",
+    				"Hold Portal",
+    				"Light",
+    				"Magic Missile",
+    				"Protection from Evil",
+    				"Read Languages",
+    				"Read Magic",
+    				"Shield",
+    				"Sleep",
+    				"Ventriloquism"
+    			],
+    			[
+    				"Continual Light",
+    				"Darkness, 5' Radius",
+    				"Detect Evil",
+    				"Detect Invisible",
+    				"ESP",
+    				"Invisibility",
+    				"Knock",
+    				"Levitate",
+    				"Locate Object",
+    				"Magic Mouth",
+    				"Mirror Image",
+    				"Phantasmal Forces",
+    				"Pyrotechnics",
+    				"Strength",
+    				"Web",
+    				"Wizard Lock"
+    			],
+    			[
+    				"Clairaudience",
+    				"Clairvoyance",
+    				"Dispel Magic",
+    				"Explosive Runes",
+    				"Fire Ball",
+    				"Fly",
+    				"Haste Spell",
+    				"Hold Person",
+    				"Infravision",
+    				"Invisibility, 10' Radius",
+    				"Lightning Bolt",
+    				"Monster Summoning I",
+    				"Protection from Evil, 10' Radius",
+    				"Protection from Normal Missiles",
+    				"Rope Trick",
+    				"Slow Spell",
+    				"Suggestion",
+    				"Water Breathing"
+    			],
+    			[
+    				"Charm Monster",
+    				"Confusion",
+    				"Dimension Door",
+    				"Extension I",
+    				"Fear",
+    				"Growth of Plants",
+    				"Hallucinatory Terrain",
+    				"Ice Storm",
+    				"Massmorph",
+    				"Monster Summoning II",
+    				"Polymorph Others",
+    				"Polymorph Self",
+    				"Remove Curse",
+    				"Wall Of Fire",
+    				"Wall Of Ice",
+    				"Wizard Eye"
+    			],
+    			[
+    				"Animate Dead",
+    				"Cloudkill",
+    				"Conjure Elemental",
+    				"Contact Higher Plane",
+    				"Extension II",
+    				"Feeblemind",
+    				"Growth of Animals",
+    				"Hold Monster",
+    				"Magic Jar",
+    				"Monster Summoning III",
+    				"Pass-Wall",
+    				"Telekinesis",
+    				"Teleport",
+    				"Transmute Rock to Mud/Transmute Mud to Rock",
+    				"Wall of Iron",
+    				"Wall of Stone"
+    			],
+    			[
+    				"Anti-Magic Shell",
+    				"Control Weather",
+    				"Death Spell",
+    				"Disintegrate",
+    				"Extension III",
+    				"Geas",
+    				"Invisible Stalker",
+    				"Legend Lore",
+    				"Lower Water",
+    				"Monster Summoning IV",
+    				"Move Earth",
+    				"Part Water"
+    			],
+    			[
+    				"Charm Plants",
+    				"Delayed Blast Fire Ball",
+    				"Limited Wish",
+    				"Mass Invisibility",
+    				"Monster Summoning V",
+    				"Phase Door",
+    				"Power Word-Stun",
+    				"Reverse Gravity",
+    				"Simulacrum"
+    			],
+    			[
+    				"Mass Charm",
+    				"Clone",
+    				"Power Word-Blind",
+    				"Symbol",
+    				"Permanent Spell",
+    				"Mind Blank",
+    				"Polymorph Any Object",
+    				"Monster Summoning VI"
+    			],
+    			[
+    				"Meteor Swarm",
+    				"Shape Change",
+    				"Time Stop",
+    				"Power Word-Kill",
+    				"Gate",
+    				"Wish",
+    				"Astral Spell",
+    				"Prismatic Wall",
+    				"Maze",
+    				"Monster Summoning VII"
+    			]
+    		],
+    		levels: [
+    			{
+    				level: 1,
+    				hitDice: "1d4",
+    				experience: 0
+    			},
+    			{
+    				level: 2,
+    				hitDice: "2d4",
+    				experience: 2400
+    			},
+    			{
+    				level: 3,
+    				hitDice: "3d4",
+    				experience: 4800
+    			},
+    			{
+    				level: 4,
+    				hitDice: "4d4",
+    				experience: 9600
+    			},
+    			{
+    				level: 5,
+    				hitDice: "5d4",
+    				experience: 19200
+    			},
+    			{
+    				level: 6,
+    				hitDice: "6d4",
+    				experience: 38500
+    			},
+    			{
+    				level: 7,
+    				hitDice: "7d4",
+    				experience: 84000
+    			},
+    			{
+    				level: 8,
+    				hitDice: "8d4",
+    				experience: 180000
+    			},
+    			{
+    				level: 9,
+    				hitDice: "9d4",
+    				experience: 300000
+    			},
+    			{
+    				level: 10,
+    				hitDice: "9d4",
+    				experience: 600000
+    			},
+    			{
+    				level: 11,
+    				hitDice: "9d4+1",
+    				experience: 820000
+    			},
+    			{
+    				level: 12,
+    				hitDice: "9d4+1",
+    				experience: 1040000
+    			},
+    			{
+    				level: 13,
+    				hitDice: "9d4+2",
+    				experience: 1260000
+    			},
+    			{
+    				level: 14,
+    				hitDice: "9d4+2",
+    				experience: 1480000
+    			},
+    			{
+    				level: 15,
+    				hitDice: "9d4+3",
+    				experience: 1700000
+    			},
+    			{
+    				level: 16,
+    				hitDice: "9d4+3",
+    				experience: 1920000
+    			},
+    			{
+    				level: 17,
+    				hitDice: "9d4+4",
+    				experience: 2140000
+    			},
+    			{
+    				level: 18,
+    				hitDice: "9d4+4",
+    				experience: 2360000
+    			},
+    			{
+    				level: 19,
+    				hitDice: "9d4+5",
+    				experience: 2580000
+    			},
+    			{
+    				level: 20,
+    				hitDice: "9d4+5",
+    				experience: 2800000
+    			},
+    			{
+    				level: 21,
+    				hitDice: "9d4+6",
+    				experience: 3020000
+    			},
+    			{
+    				level: 22,
+    				hitDice: "9d4+6",
+    				experience: 3240000
+    			}
+    		]
+    	}
+    };
     var ifData = {
-    	abilities: abilities
+    	abilities: abilities,
+    	classes: classes
     };
 
     const app = new App({
