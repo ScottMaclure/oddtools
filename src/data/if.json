@@ -1,0 +1,17 @@
+{
+    "abilities": {
+        "intelligence": [
+            {"levelMin": 3, "levelMax": 4, "spellChance": 20, "minNum": 2, "maxNum": 3, "maxLevel": 5},
+            {"levelMin": 5, "levelMax": 7, "spellChance": 30, "minNum": 2, "maxNum": 4, "maxLevel": 5},
+            {"levelMin": 8, "levelMax": 9, "spellChance": 40, "minNum": 3, "maxNum": 5, "maxLevel": 5},
+            {"levelMin": 10, "levelMax": 11, "spellChance": 50, "minNum": 4, "maxNum": 6, "maxLevel": 5},
+            {"levelMin": 12, "levelMax": 12, "spellChance": 50, "minNum": 4, "maxNum": 6, "maxLevel": 6},
+            {"levelMin": 13, "levelMax": 13, "spellChance": 65, "minNum": 5, "maxNum": 8, "maxLevel": 6},
+            {"levelMin": 14, "levelMax": 14, "spellChance": 65, "minNum": 5, "maxNum": 8, "maxLevel": 7},
+            {"levelMin": 15, "levelMax": 15, "spellChance": 75, "minNum": 6, "maxNum": 10, "maxLevel": 7},
+            {"levelMin": 16, "levelMax": 16, "spellChance": 75, "minNum": 6, "maxNum": 10, "maxLevel": 8},
+            {"levelMin": 17, "levelMax": 17, "spellChance": 85, "minNum": 7, "maxNum": 99, "maxLevel": 8},
+            {"levelMin": 18, "levelMax": 18, "spellChance": 95, "minNum": 8, "maxNum": 99, "maxLevel": 9}
+        ]
+    }
+}
