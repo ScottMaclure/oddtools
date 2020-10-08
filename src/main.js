@@ -1,4 +1,4 @@
-import App from './App.svelte';
+import App from './components/App.svelte';
 import appData from './data/app.json';
 import ifData from './data/if.json';
 
