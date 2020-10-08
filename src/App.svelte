@@ -164,7 +164,7 @@
 		</main>
 
 		<footer>
-			<small>&copy; 2020 Scott Maclure. MIT License. Version {appData.version}</small>
+			<small>&copy; 2020 Scott Maclure. MIT License. Version {appData.version}. <a href="{appData.ghRepo}">Github repo</a>.</small>
 		</footer>
 
 	</div>
@@ -191,6 +191,10 @@
 
 	main {
 		text-align: left;
+	}
+
+	footer {
+		margin-top: 1rem;
 	}
 
 	@media (min-width: 640px) {
