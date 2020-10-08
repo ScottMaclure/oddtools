@@ -69,6 +69,8 @@
 				moreSpells = true
 				continue
 			}
+
+			currentSpells.sort() // may as well make them easier to find
 		}
 
 	}
