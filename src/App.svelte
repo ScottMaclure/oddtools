@@ -7,7 +7,7 @@
 	let spellBook = deepClone(ifData.classes.magicUser.startingSpellBook)
 
 	function resetSpellBook() {
-		console.log('resetSpellBook called')
+		//console.log('resetSpellBook called')
 		spellBook = deepClone(ifData.classes.magicUser.startingSpellBook)
 	}
 	
@@ -15,12 +15,12 @@
 		
 		// Reset the spellbook
 		resetSpellBook()
-		console.log('generateSpellBook, selectedIntelligence:', selectedIntelligence)
+		//console.log('generateSpellBook, selectedIntelligence:', selectedIntelligence)
 
 		// Go through each class level up to the "maxSpellLevel", which is the highgest memorizable spell level.
 		for (let i = 0; i < selectedLevel.maxSpellLevel; i++) {
 
-			console.log('Generating spells for level:', i+1)
+			//console.log('Generating spells for level:', i+1)
 			
 			let currentSpells = spellBook[i].spells
 			let spellsAvailable = deepClone(ifData.classes.magicUser.spells[i])
@@ -30,8 +30,8 @@
 				spellsAvailable = spellsAvailable.filter(item => item !== "Read Magic")
 			}
 
-			console.log('currentSpells:', currentSpells)
-			console.log('spellsAvailable:', spellsAvailable)
+			//console.log('currentSpells:', currentSpells)
+			//console.log('spellsAvailable:', spellsAvailable)
 
 			let moreSpells = true
 			while (moreSpells) {
@@ -119,7 +119,7 @@
 				<legend>Configure</legend>
 				<div>
 					Character Level:
-					<select bind:value={selectedLevel} on:blur={resetSpellBook}>
+					<select bind:value={selectedLevel} on:change={resetSpellBook}>
 						{#each ifData.classes.magicUser.levels as option}
 							<option value={option}>{option.level}</option>
 						{/each}
@@ -180,6 +180,7 @@
 
 	.container > .item {
 		max-width: 768px;
+		width: 100%;
 	}
 
 	h1 {
